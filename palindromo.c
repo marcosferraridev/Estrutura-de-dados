@@ -44,16 +44,45 @@ int main() {
     Fila fila;
     criarFila(&fila);
 
-    inserir(&fila, 1);
-    inserir(&fila, 2);
-    inserir(&fila, 3);
-    inserir(&fila, 2);
-    inserir(&fila, 1);
+    int opcao;
+    int valor;
 
-    if (ePalindromo(&fila)) {
-        printf("forma um palindromo\n");
-    } else {
-        printf("nao forma um palindromo");
+    while (1) {
+
+        printf("\n========= MENU ==========\n");
+        printf("1 - Inserir elemento\n");
+        printf("2 - Verificar palindromo\n");
+        printf("0 - Sair\n");
+        printf("Opcao: ");
+        scanf("%d", &opcao);
+
+        if (opcao == 0) {
+            printf("Encerrando..\n");
+            break;
+        }
+
+        switch (opcao) {
+
+            case 1:
+                printf("Digite um valor: ");
+                scanf("%d", &valor);
+
+                inserir(&fila, valor);
+
+                break;
+
+            case 2:
+                if (ePalindromo(&fila)) {
+                    printf("forma um palindromo\n");
+                } else {
+                    printf("nao forma um palindromo\n");
+                }
+
+                break;
+
+            default:
+                printf("Opcao invalida\n");
+        }
     }
 
     return 0;
