@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define TAM 100
+/*
+Questão 2 – verificação se é palindromo -- estrutura de dados -- 15/05/2026
+*/
 
 typedef struct {
-    int vet[TAM];
+    int vet[100];
     int frente;
     int tras;
 } Fila;
