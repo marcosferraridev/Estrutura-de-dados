@@ -66,6 +66,8 @@ void pop(Pilha *p) {
 // mostra os elementos da pilha
 void mostrarPilha(Pilha *p) {
 
+	int i;
+	
     if (pilhaVazia(p)) {
         printf("\nNenhum elemento na pilha\n");
         return;
@@ -73,7 +75,7 @@ void mostrarPilha(Pilha *p) {
 
     printf("\nPilha atual:\n");
 
-    for (int i = p->topo; i >= 0; i--) {
+    for ( i = p->topo; i >= 0; i--) {
         printf("%d\n", p->elementos[i]);
     }
 }
@@ -81,7 +83,9 @@ void mostrarPilha(Pilha *p) {
 
 // pega o menor valor caso não esteja vazia
 void getMin(Pilha *p) {
-
+	
+	int i;
+	
     if (pilhaVazia(p)) {
         printf("\nPilha vazia");
         return;
@@ -89,7 +93,7 @@ void getMin(Pilha *p) {
 
     int menor = p->elementos[0];
 
-    for (int i = 1; i <= p->topo; i++) {
+    for ( i = 1; i <= p->topo; i++) {
 
         if (p->elementos[i] < menor) {
             menor = p->elementos[i];
