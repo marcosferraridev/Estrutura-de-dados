@@ -31,11 +31,12 @@ int pilhaCheia(Pilha *p) {
 
     return 0;
 }
-//insere o valor na pilha caso não esteja cheia também
-void insere(Pilha *p, int valor) {
+
+// push (antes insere)
+void push(Pilha *p, int valor) {
 
     if (pilhaCheia(p)) {
-        printf("\nA pilha esta cheia.\n");
+        printf("\nA pilha esta cheia\n");
         return;
     }
 
@@ -43,15 +44,15 @@ void insere(Pilha *p, int valor) {
 
     p->elementos[p->topo] = valor;
 
-    printf("\nValor %d inserido.\n", valor);
+    printf("\nValor %d inserido\n", valor);
 }
 
 
-// Remove elemento
-void remove(Pilha *p) {
+// pop (antes remove)
+void pop(Pilha *p) {
 
     if (pilhaVazia(p)) {
-        printf("\nA pilha esta vazia.\n");
+        printf("\nA pilha esta vazia\n");
         return;
     }
 
@@ -60,7 +61,9 @@ void remove(Pilha *p) {
 
     p->topo--;
 }
-//mostra os elementos da pila
+
+
+// mostra os elementos da pilha
 void mostrarPilha(Pilha *p) {
 
     if (pilhaVazia(p)) {
@@ -74,7 +77,9 @@ void mostrarPilha(Pilha *p) {
         printf("%d\n", p->elementos[i]);
     }
 }
-//pega o menor valor caso não esteja vazia
+
+
+// pega o menor valor caso não esteja vazia
 void getMin(Pilha *p) {
 
     if (pilhaVazia(p)) {
@@ -106,7 +111,7 @@ int main() {
 
     while (opcao != 0) {
 
-        printf("\n========== MENU ==========\n");
+        printf("\n========= MENU ==========\n");
         printf("1 - Empilhar\n");
         printf("2 - Desempilhar\n");
         printf("3 - Mostrar pilha\n");
@@ -122,12 +127,12 @@ int main() {
                 printf("Digite um numero: ");
                 scanf("%d", &numero);
 
-                insere(&p, numero);
+                push(&p, numero);
 
                 break;
 
             case 2:
-                remove(&p);
+                pop(&p);
 
                 break;
 
@@ -142,13 +147,13 @@ int main() {
                 break;
 
             case 0:
-                printf("\nPrograma finalizado.");
+                printf("\nPrograma finalizado");
 
                 break;
 
             default:
 
-                printf("\nOpcao invalida.");
+                printf("\nOpcao invalida");
         }
     }
 
